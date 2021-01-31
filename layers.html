@@ -1,0 +1,267 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+   
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+           
+    <style>
+      html, body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      #map {
+        /* configure the size of the map */
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    
+     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+     <script src="L.TileLayer.BetterWMS.js"></script>
+     
+    
+     <script>
+	        	      var map = L.map('map').setView({lon:84.8777 , lat: 19.0760}, 5);
+			     var basemap = L.tileLayer.wms('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			     maxZoom: 19,
+			}).addTo(map);
+
+			//var over={
+			var states = L.tileLayer.betterWms("https://makerghat.urbansciences.in/geoserver/wms", {
+						                layers: 'geonode:states_in_india',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						            });
+						           
+			var districts = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:all_india_districts_6june2020',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						            });
+						            
+						            
+						            
+			var talukas = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:maha_taluka_15apr2020',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						            });
+						            
+			var villages = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:ahmadnagar_villages',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						            });  
+						            
+			var pincode = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:india_pincodes_12june',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						            });
+						            
+			var AgroIndustry = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:agro_industry2',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						            });
+
+			var Banks = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:banks_30nov2020',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						            });   
+						            
+			var BeddedHospitals = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:bedded_hospital_30nov2020',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						            });                   
+						                                                               
+			var BlockHeadquarters = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:block_headquaters',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						            });              
+						            
+			var BusStands = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:bus_stands',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						            });    
+						            
+			var CHC = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:CHC_30nov2020',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						            });     
+						            
+			var ColdStorages = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:coldstorage_30nov2020',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						            });
+						            
+			var CollectionCenters = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:collectioncentre_packhouse_30nov2020',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						            });
+						            
+						            
+			var DegreeColleges = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:degree_colleges',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						            });
+						            
+			var FuelStations = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:fuel_station',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						            });
+						            
+			var GramNotified = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:gram_notified_30nov2020',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						            });
+						            
+			var HighSchoolGirls = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:highschool_girl_30nov2020',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						            });   
+						            
+			var hss = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:hsschools_30nov2020',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						            });
+						            
+			var ITI = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:ITIs_30nov2020',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						            });
+						            
+			var Mandis = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:mandi_notified_30nov2020',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						            });
+						            
+			var Panchayats = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:panchayat_HQ_30nov2020',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						                srs:"EPSG:4326",
+						                pointerCursor: true,
+						            });          
+						            
+			var PHC = L.tileLayer.betterWms('https://makerghat.urbansciences.in/geoserver/wms', {
+						                layers: 'geonode:PHC_30nov2020',
+						                format: 'image/png',
+						                transparent: 'true',
+						                tiled: 'true',
+						                opacity:0.7,
+						                srs:"EPSG:4326",
+						                pointerCursor: true,
+						            });                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+						           // };                                    
+						                         
+			
+			
+			var baseLayers ={
+							"OpenStreetMaps" : basemap,
+						};
+											
+		
+			var overlayLayers = {
+					//"Heirarchies":{
+							"States" : states,
+							"Districts" : districts,
+							"Talukas" : talukas,
+							"Villages" : villages,
+							"Pin Code": pincode,	
+							//},
+					//"PMGSY":{					
+							"Agro Industry" : AgroIndustry,
+							"Banks" : Banks,
+							"Bedded Hospitals": BeddedHospitals,
+							"Block Headquarters" : BlockHeadquarters,
+							"Bus Stands" : BusStands,
+							"CHC":CHC,
+							"PHC":PHC,
+							"Cold Storages":ColdStorages,
+							"Collection Centers":CollectionCenters,
+							"Degree Colleges":DegreeColleges,
+							"Fuel Stations":FuelStations,
+							"Gram Notified":GramNotified,
+							"High School Girls":HighSchoolGirls,
+							"HSS Schools":hss,
+							"ITI":ITI,
+							"Mandis":Mandis,
+							"Panchayats":Panchayats,//}		
+							
+					     };							 
+
+						L.control.layers({}, overlayLayers).addTo(map);
+						
+			
+    </script>
+  </body>
+</html>
